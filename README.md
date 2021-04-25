@@ -1,6 +1,6 @@
 # Radarr + Sonarr 4K Installer
 ### For Swizzin installs
-Second **arr* Installation on Swizzin based systems
+Second Radarr/Sonarr Installation on Swizzin based systems
 
 Uses existing install as a base. you must ``sudo box install radarr`` & ``sudo box install sonarr`` prior to running this script. 
 
