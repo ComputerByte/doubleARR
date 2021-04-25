@@ -194,7 +194,7 @@ echo_progress_done "Done."
 }
 
 if [[ -f /install/.sonarrv3.lock ]]; then
-echo -n "We see you have sonarr installed, would you like to install another instance? "
+echo -n "We see you have sonarr installed, would you like to install another instance?(y/n) "
 read VAR
 if [[ $VAR == 'y' ]] && [[ -f /install/.sonarrv3.lock ]];
 then
@@ -203,7 +203,7 @@ fi
 fi
 
 if [[ -f /install/.radarr.lock ]]; then
-echo -n "We see you have radarr installed, would you like to install another instance? "
+echo -n "We see you have radarr installed, would you like to install another instance?(y/n) "
 read VAR
 if [[ $VAR == 'y' ]] && [[ -f /install/.radarr.lock ]];
 then
