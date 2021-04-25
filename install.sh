@@ -3,7 +3,6 @@
 . /etc/swizzin/sources/functions/utils
 # Script by @ComputerByte
 # For Double *Arr Installs
-#shellcheck=SC1017
 
 # Log to Swizzin.log
 export log=/root/logs/swizzin.log
@@ -195,7 +194,7 @@ echo_progress_done "Done."
 
 if [[ -f /install/.sonarrv3.lock ]]; then
 echo -n "We see you have sonarr installed, would you like to install another instance?(y/n) "
-read VAR
+read -r VAR
 if [[ $VAR == 'y' ]] && [[ -f /install/.sonarrv3.lock ]];
 then
   _sonarr4kinstall
@@ -204,7 +203,7 @@ fi
 
 if [[ -f /install/.radarr.lock ]]; then
 echo -n "We see you have radarr installed, would you like to install another instance?(y/n) "
-read VAR
+read -r VAR
 if [[ $VAR == 'y' ]] && [[ -f /install/.radarr.lock ]];
 then
   _radarr4kinstall
