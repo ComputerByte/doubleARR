@@ -1,4 +1,4 @@
-# Radarr + Sonarr 4K Installer
+# Radarr + Sonarr Second Install
 ### For Swizzin installs
 Second Radarr/Sonarr Installation on Swizzin based systems
 
