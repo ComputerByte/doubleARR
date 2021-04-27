@@ -62,7 +62,7 @@ fi
 
 echo_progress_start "Generating configuration"
 # Start sonarr to config
-systemctl stop sonar.service >> $log 2>&1
+systemctl stop sonarr.service >> $log 2>&1
 systemctl enable --now sonarr4k.service >> $log 2>&1
 sleep 20
 # Stop to change port and append baseurl
