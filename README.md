@@ -1,10 +1,8 @@
-# Radarr + Sonarr Second Install
+# Radarr + Sonarr Install and Second Instance
 ### For Swizzin installs
 Second Radarr/Sonarr Installation on Swizzin based systems
 
-Uses existing install as a base. you must ``sudo box install radarr`` & ``sudo box install sonarr`` prior to running this script. 
-
-Checks for radarr & sonarr and asks if you'd like to install another instance.
+Can install a primary sonarr/radarr and a secondary instance of it as well.
 
 Run install.sh as sudo
 ```bash
