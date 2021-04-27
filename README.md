@@ -1,6 +1,6 @@
 # Radarr + Sonarr Install and Second Instance
 ### For Swizzin installs
-Second Radarr/Sonarr Installation on Swizzin based systems
+Radarr/Sonarr Installation on Swizzin based systems
 
 Can install a primary sonarr/radarr and a secondary instance of it as well.
 
