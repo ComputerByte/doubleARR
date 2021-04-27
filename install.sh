@@ -192,20 +192,49 @@ systemctl restart panel   >> $log 2>&1
 echo_progress_done "Done."
 }
 
-if [[ -f /install/.sonarrv3.lock ]]; then
-echo -n "We see you have sonarr installed, would you like to install another instance?(y/n) "
+#Asks if they'd like to install sonarr.
+if [[ ! -f /install/.sonarrv3.lock ]]; then
+echo -n "We see you dont have sonarr installed, would you like to install?(y/n) "
 read -r VAR
-if [[ $VAR == 'y' ]] && [[ -f /install/.sonarrv3.lock ]];
+if [[ $VAR == 'y' ]];
+then
+  box install sonarrv3
+  if [[ $VAR == 'n' ]];
+then
+  echo -n We wont install sonarr.
+fi
+fi
+fi
+#After confirming sonarr1, asks if theyd like another instance.
+if [[ -f /install/.sonarrv3.lock ]]; then
+echo -n "Would you like to install another instance of sonarr?(y/n) "
+read -r VAR
+if [[ $VAR == 'y' ]];
 then
   _sonarr4kinstall
 fi
 fi
 
-if [[ -f /install/.radarr.lock ]]; then
-echo -n "We see you have radarr installed, would you like to install another instance?(y/n) "
+#Asks if they'd like to install radarr.
+if [[ ! -f /install/.radarr.lock ]]; then
+echo -n "We see you dont have radarr installed, would you like to install?(y/n) "
 read -r VAR
-if [[ $VAR == 'y' ]] && [[ -f /install/.radarr.lock ]];
+if [[ $VAR == 'y' ]];
+then
+  box install radarr
+  if [[ $VAR == 'n' ]];
+then
+  echo -n We wont install radarr.
+fi
+fi
+fi
+#After confirming radarr1, asks if theyd like another instance.
+if [[ -f /install/.radarr.lock ]]; then
+echo -n "Would you like to install another instance of radarr?(y/n) "
+read -r VAR
+if [[ $VAR == 'y' ]];
 then
   _radarr4kinstall
+fi
 fi
 fi
