@@ -32,6 +32,7 @@ sudo su -
 wget "https://raw.githubusercontent.com/ComputerByte/doubleARR/main/doublearruninstall.sh"
 chmod +x ~/doublearruninstall.sh
 ~/doublearruninstall.sh
+## if you want to remove base sonarr/radarr
 box remove sonarrv3
 box remove radarr
 ```
