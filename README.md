@@ -8,8 +8,8 @@ Run install.sh as sudo
 ```bash
 sudo su -
 wget "https://raw.githubusercontent.com/ComputerByte/doubleARR/main/doublearrinstall.sh"
-chmod +x ~/install.sh
-~/install.sh
+chmod +x ~/doublearrinstall.sh
+~/doublearrinstall.sh
 ```
 Sometimes **Arr* won't start due to another one existing, use the panel to stop Sonarr/Radarr and Sonarr4k/Radarr4k, enable base and wait a second before starting *Arr4k or
 
