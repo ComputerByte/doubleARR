@@ -7,7 +7,7 @@ Can install a primary sonarr/radarr and a secondary instance of it as well.
 Run install.sh as sudo
 ```bash
 sudo su -
-wget "https://raw.githubusercontent.com/ComputerByte/doubleARR/main/install.sh"
+wget "https://raw.githubusercontent.com/ComputerByte/doubleARR/main/doublearrinstall.sh"
 chmod +x ~/install.sh
 ~/install.sh
 ```
