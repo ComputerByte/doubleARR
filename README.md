@@ -24,3 +24,14 @@ sudo systemctl start sonarr4k
 ```
 
 The log file should be located at ``/root/log/swizzin.log``.
+
+# Uninstaller: 
+
+```bash
+sudo su -
+wget "https://raw.githubusercontent.com/ComputerByte/doubleARR/main/doublearruninstall.sh"
+chmod +x ~/doublearruninstall.sh
+~/doublearruninstall.sh
+box remove sonarrv3
+box remove radarr
+```
