@@ -237,4 +237,3 @@ then
   _radarr4kinstall
 fi
 fi
-fi
