@@ -198,7 +198,7 @@ echo -n "We see you dont have sonarr installed, would you like to install?(y/n) 
 read -r VAR
 if [[ $VAR == 'y' ]];
 then
-  box install sonarrv3
+  box install sonarr
   if [[ $VAR == 'n' ]];
 then
   echo -n We wont install sonarr.
