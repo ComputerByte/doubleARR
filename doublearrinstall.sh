@@ -71,6 +71,7 @@ NGX
   systemctl start sonarr.service >>$log 2>&1
   sed -i "s/8989/8882/g" /home/$user/.config/sonarr4k/config.xml >>$log 2>&1
   sed -i "s/<UrlBase><\/UrlBase>/<UrlBase>\/sonarr4k<\/UrlBase>/g" /home/$user/.config/sonarr4k/config.xml >>$log 2>&1
+  sed -i "s/\*/127.0.0.1/g" /home/$user/.config/sonarr4k/config.xml
   echo_progress_done "Done generating config."
   sleep 20
 
@@ -167,6 +168,7 @@ NGX
   systemctl start radarr.service >>$log 2>&1
   sed -i "s/7878/9000/g" /home/$user/.config/radarr4k/config.xml >>$log 2>&1
   sed -i "s/<UrlBase><\/UrlBase>/<UrlBase>\/radarr4k<\/UrlBase>/g" /home/$user/.config/radarr4k/config.xml >>$log 2>&1
+  sed -i "s/\*/127.0.0.1/g" /home/$user/.config/radarr4k/config.xml
   echo_progress_done "Done generating config."
   sleep 20
 
