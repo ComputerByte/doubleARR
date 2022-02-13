@@ -195,7 +195,7 @@ EOF
 }
 
 #Asks if they'd like to install sonarr.
-if [[ ! -f /install/.sonarrv3.lock ]]; then
+if [[ ! -f /install/.sonarr.lock ]]; then
   echo -n "We see you dont have sonarr installed, would you like to install?(y/n) "
   read -r VAR
   if [[ $VAR == 'y' ]]; then
@@ -206,7 +206,7 @@ if [[ ! -f /install/.sonarrv3.lock ]]; then
   fi
 fi
 #After confirming sonarr1, asks if theyd like another instance.
-if [[ -f /install/.sonarrv3.lock ]]; then
+if [[ -f /install/.sonarr.lock ]]; then
   echo -n "Would you like to install another instance of sonarr?(y/n) "
   read -r VAR
   if [[ $VAR == 'y' ]]; then
