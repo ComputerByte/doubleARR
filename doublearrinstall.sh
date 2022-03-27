@@ -179,7 +179,7 @@ NGX
   echo_progress_start "Generating configuration"
   # Start radarr to config
   systemctl stop radarr.service >>$log 2>&1
- cat > /home/${user}/.config/sonarr4k/config.xml << EOSC
+ cat > /home/${user}/.config/radarr4k/config.xml << EOSC
 <Config>
   <LogLevel>info</LogLevel>
   <EnableSsl>False</EnableSsl>
