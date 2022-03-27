@@ -76,7 +76,7 @@ NGX
   <Branch>main</Branch>
 </Config>
 EOSC
-chown -R ${user}:${user}/home/${user}/.config/sonarr4k/config.xml
+chown -R ${user}:${user} /home/${user}/.config/sonarr4k/config.xml
 systemctl enable --now sonarr.service >>$log 2>&1
 sleep 20
 systemctl enable --now sonarr4k.service >>$log 2>&1
@@ -192,7 +192,7 @@ NGX
   <Branch>main</Branch>
 </Config>
 EOSC
-chown -R ${user}:${user}/home/${user}/.config/radarr4k/config.xml
+chown -R ${user}:${user} /home/${user}/.config/radarr4k/config.xml
 systemctl enable --now radarr.service >>$log 2>&1
 sleep 20
 systemctl enable --now radarr4k.service >>$log 2>&1
