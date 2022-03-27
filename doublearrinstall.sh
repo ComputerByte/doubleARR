@@ -158,7 +158,7 @@ location /radarr4k {
   proxy_set_header Connection \$http_connection;
 }
 
-location  /radarr/api {
+location  /radarr4k/api {
   proxy_pass        http://127.0.0.1:9000/radarr/api;
   proxy_set_header Host \$host;
   proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
