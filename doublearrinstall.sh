@@ -157,19 +157,6 @@ location /radarr4k {
   proxy_set_header Upgrade \$http_upgrade;
   proxy_set_header Connection \$http_connection;
 }
-
-location  /radarr4k/api {
-  proxy_pass        http://127.0.0.1:9000/radarr/api;
-  proxy_set_header Host \$host;
-  proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-  proxy_set_header X-Forwarded-Host \$host;
-  proxy_set_header X-Forwarded-Proto \$scheme;
-  proxy_redirect off;
-  auth_basic off;
-  proxy_http_version 1.1;
-  proxy_set_header Upgrade \$http_upgrade;
-  proxy_set_header Connection \$http_connection;
-}
 NGX
     # Reload nginx
     systemctl reload nginx
