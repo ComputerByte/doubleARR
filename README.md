@@ -4,6 +4,8 @@ Radarr/Sonarr Installation on Swizzin based systems
 
 Can install a primary sonarr/radarr and a secondary instance of it as well.
 
+Config assumes NGINX is installed, if you dont have it installed, you'll have to enable auth in radarr4k/sonarr4k yourself.
+
 Run install.sh as sudo
 ```bash
 sudo su -
