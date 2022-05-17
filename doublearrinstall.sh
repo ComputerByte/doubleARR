@@ -12,12 +12,12 @@ user=$(_get_master_username)
 
 _sonarr4kinstall() {
   echo_progress_start "Making data directory and owning it to ${user}"
-mkdir -p "/home/$user/.config/sonarr4k"
-chown -R "$user":"$user" /home/$user/.config/sonarr4k
-echo_progress_done "Data Directory created and owned."
+  mkdir -p "/home/$user/.config/sonarr4k"
+  chown -R "$user":"$user" /home/$user/.config/sonarr4k
+  echo_progress_done "Data Directory created and owned."
 
-echo_progress_start "Installing systemd service file"
-cat >/etc/systemd/system/sonarr4k.service <<-SERV
+  echo_progress_start "Installing systemd service file"
+  cat >/etc/systemd/system/sonarr4k.service <<-SERV
 # This file is owned by the sonarr package, DO NOT MODIFY MANUALLY
 # Instead use 'dpkg-reconfigure -plow sonarr' to modify User/Group/UMask/-data
 # Or use systemd built-in override functionality using 'systemctl edit sonarr'
@@ -39,10 +39,10 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 SERV
-echo_progress_done "Sonarr 4K service installed"
+  echo_progress_done "Sonarr 4K service installed"
 
-# This checks if nginx is installed, if it is, then it will install nginx config for sonarr4k
-if [[ -f /install/.nginx.lock ]]; then
+  # This checks if nginx is installed, if it is, then it will install nginx config for sonarr4k
+  if [[ -f /install/.nginx.lock ]]; then
     echo_progress_start "Installing nginx config"
     cat >/etc/nginx/apps/sonarr4k.conf <<-NGX
     location /sonarr {
@@ -58,11 +58,11 @@ NGX
     # Reload nginx
     systemctl reload nginx
     echo_progress_done "Nginx config applied"
-fi
+  fi
 
-echo_progress_start "Generating configuration"
+  echo_progress_start "Generating configuration"
 
-cat > /home/${user}/.config/sonarr4k/config.xml << EOSC
+  cat >/home/${user}/.config/sonarr4k/config.xml <<EOSC
 <Config>
   <Port>8882</Port>
   <SslPort>9898</SslPort>
@@ -71,13 +71,13 @@ cat > /home/${user}/.config/sonarr4k/config.xml << EOSC
   <UpdateMechanism>none</UpdateMechanism>
 </Config>
 EOSC
-chown -R ${user}:${user}/home/${user}/.config/sonarr4k/config.xml
-systemctl enable --now sonarr4k.service >>$log 2>&1
+  chown -R ${user}:${user}/home/${user}/.config/sonarr4k/config.xml
+  systemctl enable --now sonarr4k.service >>$log 2>&1
 
-echo_progress_start "Patching panel."
-systemctl start sonarr4k.service >>$log 2>&1
-#Install Swizzin Panel Profiles
-if [[ -f /install/.panel.lock ]]; then
+  echo_progress_start "Patching panel."
+  systemctl start sonarr4k.service >>$log 2>&1
+  #Install Swizzin Panel Profiles
+  if [[ -f /install/.panel.lock ]]; then
     cat <<EOF >>/opt/swizzin/core/custom/profiles.py
 class sonarr4k_meta:
     name = "sonarr4k"
@@ -89,21 +89,21 @@ class sonarr4k_meta:
 class sonarr_meta(sonarr_meta):
     check_theD = True
 EOF
-fi
-touch /install/.sonarr4k.lock >>$log 2>&1
-echo_progress_done "Panel patched."
-systemctl restart panel >>$log 2>&1
-echo_progress_done "Done."
+  fi
+  touch /install/.sonarr4k.lock >>$log 2>&1
+  echo_progress_done "Panel patched."
+  systemctl restart panel >>$log 2>&1
+  echo_progress_done "Done."
 }
 
 _radarr4kinstall() {
   echo_progress_start "Making data directory and owning it to ${user}"
-mkdir -p "/home/$user/.config/radarr4k"
-chown -R "$user":"$user" /home/$user/.config/radarr4k
-echo_progress_done "Data Directory created and owned."
+  mkdir -p "/home/$user/.config/radarr4k"
+  chown -R "$user":"$user" /home/$user/.config/radarr4k
+  echo_progress_done "Data Directory created and owned."
 
-echo_progress_start "Installing systemd service file"
-cat >/etc/systemd/system/radarr4k.service <<-SERV
+  echo_progress_start "Installing systemd service file"
+  cat >/etc/systemd/system/radarr4k.service <<-SERV
 [Unit]
 Description=Radarr 4K
 After=syslog.target network.target
@@ -131,10 +131,10 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 SERV
-echo_progress_done "Radarr 4K service installed"
+  echo_progress_done "Radarr 4K service installed"
 
-# This checks if nginx is installed, if it is, then it will install nginx config for radarr4k
-if [[ -f /install/.nginx.lock ]]; then
+  # This checks if nginx is installed, if it is, then it will install nginx config for radarr4k
+  if [[ -f /install/.nginx.lock ]]; then
     echo_progress_start "Installing nginx config"
     cat >/etc/nginx/apps/radarr4k.conf <<-NGX
 location /radarr4k {
@@ -166,10 +166,10 @@ NGX
     # Reload nginx
     systemctl reload nginx
     echo_progress_done "Nginx config applied"
-fi
+  fi
 
-echo_progress_start "Generating configuration"
-cat > /home/${user}/.config/radarr4k/config.xml << EOSC
+  echo_progress_start "Generating configuration"
+  cat >/home/${user}/.config/radarr4k/config.xml <<EOSC
 <Config>
   <Port>3675</Port>
   <SslPort>3765</SslPort>
@@ -178,13 +178,13 @@ cat > /home/${user}/.config/radarr4k/config.xml << EOSC
   <UpdateMechanism>none</UpdateMechanism>
 </Config>
 EOSC
-chown -R ${user}:${user} /home/${user}/.config/radarr4k/config.xml
-systemctl enable --now radarr4k.service >>$log 2>&1
+  chown -R ${user}:${user} /home/${user}/.config/radarr4k/config.xml
+  systemctl enable --now radarr4k.service >>$log 2>&1
 
-echo_progress_start "Patching panel."
-systemctl start radarr4k.service >>$log 2>&1
-#Install Swizzin Panel Profiles
-if [[ -f /install/.panel.lock ]]; then
+  echo_progress_start "Patching panel."
+  systemctl start radarr4k.service >>$log 2>&1
+  #Install Swizzin Panel Profiles
+  if [[ -f /install/.panel.lock ]]; then
     cat <<EOF >>/opt/swizzin/core/custom/profiles.py
 class radarr4k_meta:
     name = "radarr4k"
@@ -196,11 +196,11 @@ class radarr4k_meta:
 class radarr_meta(radarr_meta):
     check_theD = True
 EOF
-fi
-touch /install/.radarr4k.lock >>$log 2>&1
-echo_progress_done "Panel patched."
-systemctl restart panel >>$log 2>&1
-echo_progress_done "Done."
+  fi
+  touch /install/.radarr4k.lock >>$log 2>&1
+  echo_progress_done "Panel patched."
+  systemctl restart panel >>$log 2>&1
+  echo_progress_done "Done."
 }
 
 #Asks if they'd like to install sonarr.
