@@ -31,7 +31,7 @@ Group=${user}
 UMask=0002
 
 Type=simple
-ExecStart=/usr/bin/mono --debug /opt/Sonarr/Sonarr.exe -nobrowser -data=/home/${user}/.config/sonarr4k
+ExecStart=/opt/Sonarr/Sonarr -nobrowser -data=/home/${user}/.config/sonarr4k
 TimeoutStopSec=20
 KillMode=process
 Restart=on-failure
